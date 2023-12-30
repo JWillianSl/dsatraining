@@ -207,7 +207,7 @@ public class ArrayList<E> implements List<E>{
      * @param index - valid position in ArrayList to move 
      */
     private void shiftRight(int index){
-        for(int i = this.size - 1; i <= index; i--)
+        for(int i = this.size - 1; i >= index; i--)
             this.elements[i + 1] = this.elements[i];
     }
 

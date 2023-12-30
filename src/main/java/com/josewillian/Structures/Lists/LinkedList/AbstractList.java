@@ -41,10 +41,15 @@ abstract class AbstractList<E> implements List<E>{
     public void add(E e, int index) {
         validateIndex(index);
 
-        Node<E> newNode = new Node<E>();
-        newNode.setData(e);
-        
-        add(newNode, index, 0, this.head);
+        if(index == 0){
+            addFirst(e);
+        } 
+        else {
+            Node<E> newNode = new Node<E>();
+            newNode.setData(e);
+            
+            add(newNode, index, 0, this.head);
+        }
     }
 
     @Override
@@ -72,6 +77,24 @@ abstract class AbstractList<E> implements List<E>{
             add(item);
 
         return true;
+    }
+
+    /**
+     * Insert a new element in the first position, also updates the head Node reference.
+     * 
+     * @param e - data to create a new Node
+     */
+    public void addFirst(E e){
+        Node<E> newHead = new Node<E>();
+        newHead.setData(e);
+
+        newHead.setPrevious(this.head.getPrevious());
+        newHead.setNext(this.head);
+        newHead.getPrevious().setNext(newHead);
+        newHead.getNext().setPrevious(newHead);
+        
+        this.head = newHead;
+        this.size++;
     }
 
     @Override

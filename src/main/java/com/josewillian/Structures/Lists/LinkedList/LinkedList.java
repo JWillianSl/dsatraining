@@ -138,7 +138,7 @@ public class LinkedList<E> extends AbstractList<E> {
      * Connect the previous Node and the next Node, previously connected
      * with this pivot.
      * 
-     * @param pivot - given Node for unlink of this List
+     * @param pivot - given Node to unlink from this List
      */
     private void unlink(Node<E> pivot){
         Node<E> prev = pivot.getPrevious();

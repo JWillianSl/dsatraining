@@ -40,8 +40,9 @@ public class ListTest {
             () -> assertTrue(structure.add(7)),
 
             () -> {
-                Object[] completeArray = new Object[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+                Object[] completeArray = new Object[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21};
                 structure.addAll(new Object[]{8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21});
+                structure.add(0, 0);
 
                 assertArrayEquals(completeArray, structure.toArray());
             }
