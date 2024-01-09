@@ -136,7 +136,7 @@ abstract class AbstractList<E> implements List<E>{
      */
     public E removeFirst(){
         if(isEmpty()){
-            throw new ListUnderflowException(null);
+            throw new ListUnderflowException("The list is empty.");
         }
         E out = this.head.getData();
         this.size--;
@@ -179,7 +179,10 @@ abstract class AbstractList<E> implements List<E>{
     @SuppressWarnings("unchecked")
     public E[] toArray() {
         E[] out = (E[]) new Comparable[this.size];
-        toArray(out, 0, this.head);
+        
+        if(!isEmpty()){
+            toArray(out, 0, this.head);
+        }
 
         return out;
     }
@@ -199,7 +202,7 @@ abstract class AbstractList<E> implements List<E>{
      * @return element stored in the last position
      */
     public E peekLast(){
-        return this.tale.getData();
+        return this.tale.getPrevious().getData();
     }
 
     /**
