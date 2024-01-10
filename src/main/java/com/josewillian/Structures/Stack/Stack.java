@@ -53,7 +53,7 @@ public class Stack<E> {
     }
 
     /**
-     * Remove the last element of this Stack.
+     * Removes the last element of this Stack.
      * 
      * @return the element previously stored in the last position of this Stack
      */
