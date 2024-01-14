@@ -113,6 +113,33 @@ public class QueueTest {
 
     }
 
+    @ParameterizedTest
+    @MethodSource("structure")
+    public void toArrayTest(Queue<Integer> structure){
+
+        assertAll(
+            () -> {
+                for(Integer item : simpleInt){
+                    structure.enqueue(item);
+                }
+            },
+
+            () -> assertArrayEquals(simpleInt, structure.toArray()),
+            () -> assertEquals(7, structure.size()),
+            () -> assertEquals(1, structure.dequeue()),
+            
+            () -> {
+                for(int i = 0; i < 6; i++){
+                    structure.dequeue();
+                }
+            },
+
+            () -> assertTrue(structure.isEmpty()),
+            () -> assertArrayEquals(new Integer[]{}, structure.toArray())
+        );
+
+    }
+
     private static Stream<Queue<Integer>> structure(){
         return Stream.of(new LinkedQueue<>());
     }
