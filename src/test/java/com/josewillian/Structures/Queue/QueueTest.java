@@ -141,7 +141,7 @@ public class QueueTest {
     }
 
     private static Stream<Queue<Integer>> structure(){
-        return Stream.of(new LinkedQueue<>());
+        return Stream.of(new LinkedQueue<>(), new CircularQueue<>());
     }
 
 }
